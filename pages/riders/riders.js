@@ -20,6 +20,7 @@ async function fetchRiders(){
                     const table = input.map(r => `<tr id="${r.id}">
                         <input type="button" id="btn-delete-rider-${r.id}" value="Delete">
                         <input type="button" id="btn-update-rider-${r.id}" value="Update">
+                        <td><input type="number" id="rider-time-input" placeholder="${r.time}"></td>
                         <td><input type="text" id="rider-fname-input" placeholder="${r.firstName}"></td>
                         <td><input type="text" id="rider-lname-input" placeholder="${r.lastName}"></td>
                         <td>"${r.age}"</td>
@@ -30,7 +31,7 @@ async function fetchRiders(){
                         </tr>`).join("");
                     document.getElementById("tbl-body-riders").innerHTML = table
                 }
-                makeTable(riders)
+                makeTable(riders.sort((a, b) => (a.time - b.time)))
             })
 
     } catch (err) {
