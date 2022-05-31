@@ -10,13 +10,13 @@ async function fetchShirts(){
         await fetch(BASE_URL + "riders", makeOptions("GET"))
             .then(res => handleHttpErrors(res))
             .then(riders => {
-                const yellowShirt = riders.sort((a, b) => a.time > b.time)[0]
+                const yellowShirt = riders.sort((a, b) => (a.time - b.time))[0]
                 console.log(yellowShirt)
-                const dottedShirt = riders.sort((a, b) => a.mountainPoints > b.mountainPoints)[0]
+                const dottedShirt = riders.sort((a, b) => (b.mountainPoints - a.mountainPoints))[0]
                 console.log(dottedShirt)
-                const greenShirt = riders.sort((a, b) => a.sprintPoints > b.sprintPoints)[0]
+                const greenShirt = riders.sort((a, b) => (b.sprintPoints - a.sprintPoints))[0]
                 console.log(greenShirt)
-                const whiteShirt = riders.filter(r => r.age <= 26).sort((a, b) => a.time > b.time)[0]
+                const whiteShirt = riders.filter(r => r.age <= 26).sort((a, b) => (a.time - b.time))[0]
                 console.log(whiteShirt)
 
                 document.getElementById("yellow").innerText = yellowShirt.firstName + " " + yellowShirt.lastName

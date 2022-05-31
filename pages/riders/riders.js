@@ -3,9 +3,10 @@ import {handleHttpErrors, makeOptions} from "../../utility.js";
 
 export function handleRiders(){
     fetchRiders()
-    document.querySelector("#btn-add-rider").onclick = () => {
+    document.getElementById("btn-add-rider").onclick = () => {
         addRider()
     }
+
 }
 
 
@@ -17,9 +18,8 @@ async function fetchRiders(){
                 console.log(riders);
                 function makeTable(input){
                     const table = input.map(r => `<tr id="${r.id}">
-                        <input type="button" id="btn-delete-rider" value="Delete">
-                        <input type="button" id="btn-update-rider" value="Update">
-                        <td><input type="number" id="rider-id-input" placeholder="${r.id}"></td>
+                        <input type="button" id="btn-delete-rider-${r.id}" value="Delete">
+                        <input type="button" id="btn-update-rider-${r.id}" value="Update">
                         <td><input type="text" id="rider-fname-input" placeholder="${r.firstName}"></td>
                         <td><input type="text" id="rider-lname-input" placeholder="${r.lastName}"></td>
                         <td>"${r.age}"</td>
@@ -57,6 +57,11 @@ async function addRider(){
     } catch (err) {
         console.log(err)
     }
+    document.getElementById("new-rider-fname-input").value = ""
+    document.getElementById("new-rider-lname-input").value = ""
+    document.getElementById("new-rider-dob-input").value = ""
+    document.getElementById("new-rider-country-input").value = ""
+    document.getElementById("new-rider-team-input").value = ""
 }
 
 async function updateRider(){
