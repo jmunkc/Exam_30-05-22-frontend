@@ -1,0 +1,56 @@
+<template>
+    <div class="container-fluid" id="div-riders">
+        <div class="row">
+            <div>
+                <button type="submit" id="btn-add-rider">Add new rider</button>
+            </div>
+            <table>
+                <tr>
+                    <td>
+                        <label for="new-rider-fname-input">First Name</label>
+                        <input type="text" id="new-rider-fname-input" placeholder="Type first name">
+                    </td>
+                    <td>
+                        <label for="new-rider-lname-input">Last Name</label>
+                        <input type="text" id="new-rider-lname-input" placeholder="Type last name">
+                    </td>
+                    <td>
+                        <label for="new-rider-dob-input">Date of birth</label>
+                        <input type="date" id="new-rider-dob-input" placeholder="Type date of birth">
+                    </td>
+                    <td>
+                        <label for="new-rider-country-input">Country</label>
+                        <input type="text" id="new-rider-country-input" placeholder="Type country">
+                    </td>
+                    <td>
+                        <label for="new-rider-team-input">Team name</label>
+                        <input type="text" id="new-rider-team-input" placeholder="Type team name">
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="row">
+            <div class="col-1">
+                <table id="tbl-riders" class="table w-auto">
+                    <thead id="tbl-head-riders">
+                    <tr>
+                        <th id="rider-id">Id</th>
+                        <th id="first-name-id">First Name</th>
+                        <th id="last-name-id">Last Name</th>
+                        <th id="age-id">Age</th>
+                        <th id="country-id">Country</th>
+                        <th id="team-id">Team</th>
+<!--                        <th id="time-id">Time</th>-->
+<!--                        <th id="mountain-id">Mountain Points</th>-->
+<!--                        <th id="sprint-id">Sprint Points</th>-->
+                    </tr>
+                    </thead>
+                    <tbody id="tbl-body-riders">
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</template>
