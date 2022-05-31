@@ -1,7 +1,7 @@
 import "https://unpkg.com/navigo"
 
 // import utility functions
-import { renderText, setActiveLink, adjustForMissingHash, loadTemplate, renderTemplate } from "./utility.js"
+import { setActiveLink, loadTemplate, renderTemplate } from "./utility.js"
 
 // import handlers
 import { handleRiders } from "./pages/riders/riders.js";

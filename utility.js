@@ -1,37 +1,9 @@
-/**
- * Appends the provided template to the node with the id contentId
- * @param {template} template
- * @param {*} contentId
- */
+
 export function renderTemplate(template, contentId) {
     const clone = template.content.cloneNode(true)
     const content = document.getElementById(contentId)
     content.innerHTML = ""
     content.appendChild(clone)
-}
-
-
-export function renderText(txt, contentId){
-    if(!txt || !contentId){
-        throw new Error("Missing input arguments in renderText")
-    }
-    const node =  document.getElementById(contentId)
-    if(!node){
-        throw new Error(`No element found for the contentId '${contentId}' `)
-    }
-    node.innerHTML = txt
-}
-
-
-export function loadTemplateFromDom(templateId) {
-    const template = document.getElementById(templateId)
-    if(!template){
-        throw new Error(`No Element found with provided ID: '${templateId}'`)
-    }
-    if(template.nodeName !="TEMPLATE" ){
-        throw new Error(`Element with id: '${templateId}' was not an HtmlTemplate, but a ${template.nodeName}`)
-    }
-    return template
 }
 
 
@@ -47,15 +19,6 @@ export async function loadTemplate(page) {
     div.innerHTML = resHtml;
     body.appendChild(div)
     return div.querySelector("template")
-};
-
-
-export function adjustForMissingHash() {
-    let path = window.location.hash
-    if (path == "") { //Do this only for hash
-        path = "#/"
-        window.history.pushState({}, path, window.location.href + path);
-    }
 }
 
 
@@ -106,12 +69,4 @@ export function makeOptions(method, body) {
     return opts;
 }
 
-const clickEvent = new MouseEvent("click", {
-    view: window,
-    bubbles: true,
-    cancelable: true
-});
 
-export function showPage(pageId) {
-    document.getElementById(pageId).dispatchEvent(clickEvent)
-}
