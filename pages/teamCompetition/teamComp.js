@@ -11,7 +11,18 @@ async function fetchTeams(){
             .then(res => handleHttpErrors(res))
             .then(teams => {
                 console.log(teams)
-            })
+                const acc = 0
+                teams.sort((a,b) => a.riders.map(r => r.time + acc) < b.riders.map(r => r.time + acc))
+                console.log(teams)
+                
+                function makeTable(input){
+                    const table = input.map(t => `<tr>
+                    <td>${t.teamName}</td>
+                    </tr>`).join("");
+                    document.getElementById("tbl-body-teams").innerHTML = table
+                    }
+                    makeTable(teams)
+                })
 
     }  catch (err) {
         console.error((err.message))
